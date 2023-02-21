@@ -15,3 +15,12 @@ export const JobInputSchema = z.object({
     id: z.string(),
   }),
 });
+
+export type JobOutput = z.infer<typeof JobOutputSchema>;
+
+export const JobOutputSchema = z.object({
+  id: z.string().uuid(),
+  hirer: z.object({
+    id: z.string(),
+  }),
+});
