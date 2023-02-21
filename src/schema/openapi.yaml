@@ -18,7 +18,17 @@ components:
       scheme: bearer
       bearerFormat: JWT
       description: An s2s token issued by an allow listed consumer
-  schemas: {}
+  schemas:
+    hirerDetails:
+      type: object
+      properties:
+        id:
+          type: string
+          description: SEEK ID
+          example: "60002023"
+      required:
+        - id
+      description: Hirer Details
   parameters: {}
 paths:
   /jobs:
@@ -34,14 +44,31 @@ paths:
               type: object
               properties:
                 hirer:
+                  $ref: "#/components/schemas/hirerDetails"
+                title:
+                  type: string
+                  maxLength: 100
+                  description: Name of job visible in job search
+                  example: "#typescriptification host"
+                metadata:
                   type: object
                   properties:
-                    id:
+                    performanceTier:
                       type: string
+                      enum:
+                        - A
+                        - B
+                        - C
+                      description: Performance of the ad 3
+                      example: A
+                      deprecated: true
                   required:
-                    - id
+                    - performanceTier
+                  description: Metadata
               required:
                 - hirer
+                - title
+                - metadata
       responses:
         "201":
           description: Successful operation
@@ -54,12 +81,7 @@ paths:
                     type: string
                     format: uuid
                   hirer:
-                    type: object
-                    properties:
-                      id:
-                        type: string
-                    required:
-                      - id
+                    $ref: "#/components/schemas/hirerDetails"
                 required:
                   - id
                   - hirer
