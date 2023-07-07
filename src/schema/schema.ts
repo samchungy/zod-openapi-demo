@@ -17,7 +17,7 @@ export const schema = createDocument({
   info: {
     title: "Sam's Jobs API",
     version: '0.0.0',
-    description: 'Hello #typescriptiication',
+    description: 'Hello melbjs',
     license: {
       name: 'SEEK',
       url: 'http://example.com',
