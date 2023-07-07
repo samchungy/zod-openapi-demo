@@ -11,16 +11,14 @@ export interface Job {
 export type JobInput = z.infer<typeof JobInputSchema>;
 
 export const JobInputSchema = z.object({
-  hirer: z.object({
-    id: z.string(),
-  }),
+  hirerId: z.string(),
+  title: z.string(),
 });
 
 export type JobOutput = z.infer<typeof JobOutputSchema>;
 
 export const JobOutputSchema = z.object({
+  hirerId: z.string(),
+  title: z.string(),
   id: z.string().uuid(),
-  hirer: z.object({
-    id: z.string(),
-  }),
 });

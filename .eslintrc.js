@@ -1,15 +1,15 @@
 module.exports = {
   extends: ['skuba'],
-  // plugins: ['eslint-plugin-zod-to-openapi'],
+  plugins: ['eslint-plugin-zod-openapi'],
   // overrides: [
   //   {
   //     files: ['src/types/jobs.ts'],
   //     rules: {
-  //       'zod-to-openapi/require-openapi': 'error',
-  //       'zod-to-openapi/require-comment': 'error',
-  //       'zod-to-openapi/require-example': 'error',
-  //       'zod-to-openapi/prefer-openapi-last': 'error',
-  //       'zod-to-openapi/prefer-zod-default': 'error',
+  //       'zod-openapi/require-openapi': 'error',
+  //       'zod-openapi/require-comment': 'error',
+  //       'zod-openapi/require-example': 'error',
+  //       'zod-openapi/prefer-openapi-last': 'error',
+  //       'zod-openapi/prefer-zod-default': 'error',
   //     },
   //   },
   // ],
