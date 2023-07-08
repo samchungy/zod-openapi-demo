@@ -7,7 +7,7 @@ const jobStore: Record<string, Job> = {};
 export const createJob = (jobInput: JobInput): Promise<Job> => {
   const id = randomUUID();
 
-  const job = { ...jobInput, id };
+  const job: Job = { ...jobInput, id };
 
   jobStore[id] = job;
 

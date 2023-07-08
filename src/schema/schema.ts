@@ -4,16 +4,6 @@ import { JobInputSchema, JobOutputSchema } from 'src/types/jobs';
 
 export const schema = createDocument({
   openapi: '3.0.3',
-  components: {
-    securitySchemes: {
-      s2sauth: {
-        type: 'http',
-        scheme: 'bearer',
-        bearerFormat: 'JWT',
-        description: 'An s2s token issued by an allow listed consumer',
-      },
-    },
-  },
   info: {
     title: "Sam's Jobs API",
     version: '0.0.0',
@@ -60,6 +50,16 @@ export const schema = createDocument({
             description: 'Bad Request',
           },
         },
+      },
+    },
+  },
+  components: {
+    securitySchemes: {
+      s2sauth: {
+        type: 'http',
+        scheme: 'bearer',
+        bearerFormat: 'JWT',
+        description: 'An s2s token issued by an allow listed consumer',
       },
     },
   },

@@ -2,10 +2,8 @@ import { z } from 'zod';
 
 export interface Job {
   id: string;
-
-  hirer: {
-    id: string;
-  };
+  title: string;
+  hirerId: string;
 }
 
 export type JobInput = z.infer<typeof JobInputSchema>;
