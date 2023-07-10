@@ -1,0 +1,43 @@
+export const JobInputSchema = z.object({
+  hirerId: z.string().openapi({
+    description: 'A unique identifier for a hirer',
+    example: '60002023',
+  }),
+  title: z
+    .string()
+    .openapi({ description: 'Name of the job', example: 'MelbJS Host' }),
+  metadata: z
+    .object({
+      performance: z.number().min(0).max(100).openapi({
+        description: 'Weighted preference for a job',
+        example: 50,
+      }),
+    })
+    .openapi({ description: 'Information to describe a job' }),
+  }
+).openapi({ description: 'Job Input Schema' });
+
+
+export const JobOutputSchema = z
+  .object({
+    id: z.string().uuid().openapi({
+      description: 'A unique identifer for the job',
+      example: '7dc9976c-8e10-466e-b620-6d26d684d977',
+    }),
+    hirerId: z.string().openapi({
+      description: 'A unique identifier for a hirer',
+      example: '60002023',
+    }),
+    title: z
+      .string()
+      .openapi({ description: 'Name of the job', example: 'MelbJS Host' }),
+    metadata: z
+      .object({
+        performance: z.number().min(0).max(100).openapi({
+          description: 'Weighted preference for a job',
+          example: 50,
+        }),
+      })
+      .openapi({ description: 'Information to describe a job' }),
+  })
+  .openapi({ description: 'Job Output Schema' });
